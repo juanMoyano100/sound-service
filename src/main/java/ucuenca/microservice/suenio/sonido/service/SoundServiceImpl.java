@@ -40,7 +40,7 @@ public class SoundServiceImpl implements SoundService {
     @Override
     public List<SoundEntity> findByIdUser(String id_usuario) {
         Query query1 = new Query();
-        query1.addCriteria(Criteria.where("id_usuario").is("0105737381"));
+        query1.addCriteria(Criteria.where("id_usuario").is(id_usuario));
         List<SoundEntity> users = mongoTemplate.find(query1, SoundEntity.class);
         return users;
     }
