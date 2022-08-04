@@ -10,7 +10,7 @@ import ucuenca.microservice.suenio.sonido.service.SoundService;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/api/sonido")
 public class SoundController {
@@ -43,9 +43,6 @@ public class SoundController {
         List<SoundEntity> temp = new ArrayList<>();
         temp = soundService.findListSound(fechaIni, fechaFin);
         System.out.println(temp);
-        if(temp.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
         return ResponseEntity.ok(temp);
     }
 
@@ -54,9 +51,6 @@ public class SoundController {
         List<SoundEntity> temp = new ArrayList<>();
         temp = soundService.findByIdUser(id_user);
         System.out.println(temp);
-        if(temp.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
         return ResponseEntity.ok(temp);
     }
 
